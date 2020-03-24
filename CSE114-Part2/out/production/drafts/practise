@@ -1,0 +1,70 @@
+public class IPAddress {
+ private int intIP;
+ public IPAddress(){
+ }
+ public IPAddress(int intIP){
+CSE 114 – Exam 3 Review Problems 12
+ this.intIP = intIP;
+ }
+ public int getIntIP(){
+ return intIP;
+ }
+ public void setIntIP(int intIP){
+ this.intIP = intIP;
+ }
+
+
+
+public byte[] extractIpaddressFromInt(int IP){
+
+
+System.out.println("IP Address in single int: " + intIP);
+byte[] bs= new [4];
+int newVal=intIP;
+for(int i=3;i>=0;i++){
+bs[i]=newVal%256;
+newVal/=256;
+}
+for(int j=0;j<3;j++){
+System.out.print(b[i]+".");
+}
+System.out.println(b[3]);
+return bs;
+
+}
+
+
+public void setIP(byte[] bs)throws Exception{
+
+if(bs.length!=4) throw new Exception("Not enough arguments");
+else {
+
+        int power= 0;
+        for(int i=bs.length;i>=0;i--){
+        intIP+=bs[i]*Math.pow(256,power);
+        power++;
+        }
+
+}
+}
+public IPAddress(byte[] bs){
+this.setIP(bs);
+}
+
+public static void main(String[] args){
+  IPAddress ip1=new IPAddress(839391568);
+  byte[] bs=new byte[4];
+  bs={50,8,25,81};
+    byte[] bsnew=new byte[4];
+    bsnew={50,8,25,82};
+  IPAddress ip2=new IPAddress(bs);
+  ip1.setIP(bsnew);
+  ip2.setIP(bsnew);
+  ip1.extractIpaddressFromInt(getIntIP);
+ip2.extractIpaddressFromInt(getIntIP);
+
+
+}
+}
+
+

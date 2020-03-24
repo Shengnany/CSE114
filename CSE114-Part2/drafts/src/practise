@@ -1,0 +1,85 @@
+import javafx.application.Application;
+import javafx.geometry.Insets;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
+import javafx.geometry.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.*;
+import javafx.stage.Stage;
+
+import java.io.*;
+
+public class Homework8 extends Application{
+    //Buttons
+    Button btLoadFile = new Button("Load File");
+    Button btSaveFileAs = new Button("Save File As");
+    Button btToLower = new Button("To Lower");
+    Button btToUpper = new Button("To Upper");
+    Button btToTitleCase = new Button("To Title Case");
+    Button btReplaceAll = new Button("Replace All");
+
+    //TextFields
+        TextField tfLoadFile = new TextField();
+        TextField tfSaveFileAs = new TextField();
+        TextField tfFind = new TextField();
+        TextField tfReplaceWith = new TextField();
+             TextArea taText = new TextArea();
+
+    //Labels
+    Label labWords = new Label("#words:");
+    Label labChars = new Label("#chars:");
+    Label labSeconds = new Label("Seconds since last save:");
+
+    @Override
+    public void start(Stage primaryStage){
+        //Create and set position of GridPane
+        GridPane pane = new GridPane();
+        pane.setHgap(5);
+        pane.setVgap(5);
+        pane.setAlignment(Pos.CENTER);
+        pane.setPadding(new Insets(20));
+
+        //Create and position all Labels and Buttons
+        pane.add(btLoadFile, 0, 0);
+        pane.add(tfLoadFile, 1, 0,2,1);
+        pane.add(btSaveFileAs, 3, 0);
+        pane.add(tfSaveFile, 4, 0);
+        pane.add(taText, 0, 1, 6, 6);
+        pane.add(btToLower,0,10);
+        pane.add(btToUpper, 1, 10);
+        pane.add(btToTitleCase, 2, 10);
+        pane.add(new Label("Find:"),0,11);
+        pane.add(tfFindWord,1,11,2,1);
+        pane.add(new Label("Replace with:"),3, 11);
+        pane.add(tfReplaceWord,4,11);
+        pane.add(btReplaceAll,5,11);
+        pane.add(labWords,0,12);
+        pane.add(labChars, 1, 12);
+        pane.add(labSeconds,3,12);
+
+        //Events
+        btLoadFile.setOnAction(e -> {} ); // Was thinking use the ValidateFile method I partly wrote
+                                          // to check if it exists and then have displayed in the TextArea box.
+
+
+        Scene scene = new Scene(pane);
+        primaryStage.setScene(scene);
+        primaryStage.setTitle("Homework8 Extra Credit Assignment");
+        primaryStage.show();
+    }
+
+    public static void validateFile(File file){
+        if (!file.exists()){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("File not found!");
+            alert.show();
+        }
+        else{
+            //Display the text in the TextArea box.
+        }
+    }
+}
+
